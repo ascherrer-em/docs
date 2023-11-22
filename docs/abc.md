@@ -2,7 +2,7 @@
 
 ABC classification is a simple method to form 3 (or 4) groups of objects based on the distribution of some value associated with them. 
 
-It is greatly inspired by the 80/20 Pareto rule, indicating that often 80% of a measure (for instance the revenue) comes from only 20% of entities (for instance customers).
+It is greatly inspired by the 80/20 Pareto rule, indicating that often 80% of a measure (for instance the revenue) comes from only 20% of objects (for instance customers).
 
 The archetypical example is to classify customers based on the amount of revenue they bring to a company.
 
@@ -57,3 +57,7 @@ Then, outside your object table, you need to compute the following quantities:
 | $0.60 < G < 0.75$ | 20%                | 30%                | 50%                |
 
 > **$G < 0.6$ indicates that no classification can take place.
+
+This reads that if $G=0.95$, the class A should contain the first 10% of objects, the class B the next 10% and class C all other customers.
+
+Similarly, if $G=0.70$, the class A should contain the first 20% of objects, the class B the next 30% and class C all other customers.

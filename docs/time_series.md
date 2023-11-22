@@ -116,7 +116,7 @@ There are **two** classical models (we will only focus on them for this course):
  
  But more generally, each component can be either additive or multiplicative.
 
- ### Step by step methodology
+### Step by step methodology
 
  1. **VIZ**: Plot the time serie, it is very important to take a look at the evolution of what you are studying. Clearly identify sampling frequency (daily, weekly, monthly, quarterly, yearly?).
  1. **TREND**: Identify if there is a trend, and wheter trend is additive or multiplicative (is trend linear?)
@@ -140,7 +140,8 @@ There are **two** classical models (we will only focus on them for this course):
  1. **FORECAST**: Now to compute the forecast, just apply $F_t = \hat{A_t} + \hat{S_t}$, which is equivalent to: $\displaystyle F_t = at + b + \hat{R_r} + \hat{S_t}$
 
 When using Excel to build such a model, you should have the folowing columns:
-  - $t$ (1 to $N$)
+
+  - $t$: (1 to $N$)
   - $Y$: Data points
   - $\hat{T_t}$: Central moving average with $k$ points (k being the seasonal period)
   - $D$: Detrended time series $Y/\hat{T_t}$
@@ -163,6 +164,7 @@ When using Excel to build such a model, you should have the folowing columns:
  1. **FORECAST**: Now to forecast apply, just apply $F_t = \hat{A_t} + \hat{S_t}$
 
 When using Excel to build such a model, you should have the folowing columns:
+
   - $t$ (1 to $N$)
   - $Y$: Data points
   - $\hat{T_t}$: Central moving average with $k$ points (k being the seasonal period)
@@ -176,7 +178,7 @@ When using Excel to build such a model, you should have the folowing columns:
   - $SE$: Standard error
 
 
- ### Example
+### Example
 
  Here is an example of a time series decomposition.
  

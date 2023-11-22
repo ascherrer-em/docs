@@ -363,6 +363,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#step-by-step-methodology" class="md-nav__link">
+    Step by step methodology
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#additive-model" class="md-nav__link">
     Additive model
   </a>
@@ -505,6 +512,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#step-by-step-methodology" class="md-nav__link">
+    Step by step methodology
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#additive-model" class="md-nav__link">
     Additive model
   </a>
@@ -611,7 +625,7 @@ Example to compute a MA3:</p>
 <li>the <strong>multiplicative</strong> model, where <span class="arithmatex">\(Y_t = T_t \times S_t \times R_t\)</span></li>
 </ul>
 <p>But more generally, each component can be either additive or multiplicative.</p>
-<p>### Step by step methodology</p>
+<h3 id="step-by-step-methodology">Step by step methodology</h3>
 <ol>
 <li><strong>VIZ</strong>: Plot the time serie, it is very important to take a look at the evolution of what you are studying. Clearly identify sampling frequency (daily, weekly, monthly, quarterly, yearly?).</li>
 <li><strong>TREND</strong>: Identify if there is a trend, and wheter trend is additive or multiplicative (is trend linear?)</li>
@@ -636,18 +650,20 @@ Example to compute a MA3:</p>
 </ul>
 </li>
 </ol>
-<p>When using Excel to build such a model, you should have the folowing columns:
-  - <span class="arithmatex">\(t\)</span> (1 to <span class="arithmatex">\(N\)</span>)
-  - <span class="arithmatex">\(Y\)</span>: Data points
-  - <span class="arithmatex">\(\hat{T_t}\)</span>: Central moving average with <span class="arithmatex">\(k\)</span> points (k being the seasonal period)
-  - <span class="arithmatex">\(D\)</span>: Detrended time series <span class="arithmatex">\(Y/\hat{T_t}\)</span>
-  - <span class="arithmatex">\(S\)</span>: Seasonal component
-  - <span class="arithmatex">\(A\)</span>: Seasonally adjusted component <span class="arithmatex">\(Y - S\)</span>
-  - <span class="arithmatex">\(T\)</span>: <span class="arithmatex">\(at + b\)</span> using <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> from the linear regression of <span class="arithmatex">\(A\)</span> vs <span class="arithmatex">\(t\)</span>
-  - <span class="arithmatex">\(R\)</span>: Residuals <span class="arithmatex">\(Y-S-T\)</span>
-  - <span class="arithmatex">\(\hat{R}\)</span>: Forecast of <span class="arithmatex">\(R\)</span> using exponential smoothing with <span class="arithmatex">\(\alpha\)</span> being either fixed or solved to minimize the standard error.
-  - <span class="arithmatex">\(F\)</span>: Forecast of <span class="arithmatex">\(Y\)</span>
-  - <span class="arithmatex">\(SE\)</span>: Standard error</p>
+<p>When using Excel to build such a model, you should have the folowing columns:</p>
+<ul>
+<li><span class="arithmatex">\(t\)</span> (1 to <span class="arithmatex">\(N\)</span>)</li>
+<li><span class="arithmatex">\(Y\)</span>: Data points</li>
+<li><span class="arithmatex">\(\hat{T_t}\)</span>: Central moving average with <span class="arithmatex">\(k\)</span> points (k being the seasonal period)</li>
+<li><span class="arithmatex">\(D\)</span>: Detrended time series <span class="arithmatex">\(Y/\hat{T_t}\)</span></li>
+<li><span class="arithmatex">\(S\)</span>: Seasonal component</li>
+<li><span class="arithmatex">\(A\)</span>: Seasonally adjusted component <span class="arithmatex">\(Y - S\)</span></li>
+<li><span class="arithmatex">\(T\)</span>: <span class="arithmatex">\(at + b\)</span> using <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> from the linear regression of <span class="arithmatex">\(A\)</span> vs <span class="arithmatex">\(t\)</span></li>
+<li><span class="arithmatex">\(R\)</span>: Residuals <span class="arithmatex">\(Y-S-T\)</span></li>
+<li><span class="arithmatex">\(\hat{R}\)</span>: Forecast of <span class="arithmatex">\(R\)</span> using exponential smoothing with <span class="arithmatex">\(\alpha\)</span> being either fixed or solved to minimize the standard error.</li>
+<li><span class="arithmatex">\(F\)</span>: Forecast of <span class="arithmatex">\(Y\)</span></li>
+<li><span class="arithmatex">\(SE\)</span>: Standard error</li>
+</ul>
 <h3 id="multiplicative-model">Multiplicative model</h3>
 <ol>
 <li><strong>ESTIMATE TREND</strong>: Estimate the trend <span class="arithmatex">\(\hat{T_t}\)</span> using central moving average or exponential smoothing. </li>

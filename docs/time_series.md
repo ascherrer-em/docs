@@ -144,7 +144,7 @@ When using Excel to build such a model, you should have the folowing columns:
   - $t$: (1 to $N$)
   - $Y$: Data points
   - $\hat{T_t}$: Central moving average with $k$ points (k being the seasonal period)
-  - $D$: Detrended time series $Y/\hat{T_t}$
+  - $D$: Detrended time series $Y - \hat{T_t}$
   - $S$: Seasonal component
   - $A$: Seasonally adjusted component $Y - S$
   - $T$: $at + b$ using $a$ and $b$ from the linear regression of $A$ vs $t$

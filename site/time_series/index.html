@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../abc/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Time series memo - Docs</title>
+        <title>Time series - Docs</title>
       
     
     
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#time-series-memo" class="md-skip">
+        <a href="#time-series" class="md-skip">
           Skip to content
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Time series memo
+              Time series
             
           </span>
         </div>
@@ -207,6 +207,25 @@
       
   
   
+  
+    <li class="md-nav__item">
+      <a href="../abc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ABC classification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -222,7 +241,7 @@
           
   
   <span class="md-ellipsis">
-    Time series memo
+    Time series
   </span>
   
 
@@ -233,7 +252,7 @@
         
   
   <span class="md-ellipsis">
-    Time series memo
+    Time series
   </span>
   
 
@@ -339,6 +358,26 @@
   <a href="#time-series-decomposition" class="md-nav__link">
     Time series decomposition
   </a>
+  
+    <nav class="md-nav" aria-label="Time series decomposition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#additive-model" class="md-nav__link">
+    Additive model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiplicative-model" class="md-nav__link">
+    Multiplicative model
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -462,6 +501,26 @@
     Time series decomposition
   </a>
   
+    <nav class="md-nav" aria-label="Time series decomposition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#additive-model" class="md-nav__link">
+    Additive model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiplicative-model" class="md-nav__link">
+    Multiplicative model
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -479,7 +538,7 @@
                   
 
 
-<h1 id="time-series-memo">Time series memo</h1>
+<h1 id="time-series">Time series</h1>
 <p>This document describes statistical methods that can used for time series analysis, with associated formulas and practical usage with Excel.</p>
 <h2 id="notations">Notations</h2>
 <p>Here is a list of the notations used thoughout this document</p>
@@ -560,7 +619,7 @@ Example to compute a MA3:</p>
 <li><strong>MODEL</strong>: Build a model (additive or multiplicative for trend/seasonality) for your data and write the associated equation</li>
 </ol>
 <p>From here, methodologies are different for additive or multiplicative models</p>
-<p>#### Additive model</p>
+<h3 id="additive-model">Additive model</h3>
 <ol>
 <li><strong>ESTIMATE TREND</strong>: Estimate the trend <span class="arithmatex">\(\hat{T_t}\)</span> using central moving average or exponential smoothing. </li>
 <li><strong>DETREND DATA</strong>= Compute the detrended time serie <span class="arithmatex">\(D_t = Y_t - \hat{T_t}\)</span> </li>
@@ -589,7 +648,7 @@ Example to compute a MA3:</p>
   - <span class="arithmatex">\(\hat{R}\)</span>: Forecast of <span class="arithmatex">\(R\)</span> using exponential smoothing with <span class="arithmatex">\(\alpha\)</span> being either fixed or solved to minimize the standard error.
   - <span class="arithmatex">\(F\)</span>: Forecast of <span class="arithmatex">\(Y\)</span>
   - <span class="arithmatex">\(SE\)</span>: Standard error</p>
-<p>#### Multiplicative model</p>
+<h3 id="multiplicative-model">Multiplicative model</h3>
 <ol>
 <li><strong>ESTIMATE TREND</strong>: Estimate the trend <span class="arithmatex">\(\hat{T_t}\)</span> using central moving average or exponential smoothing. </li>
 <li><strong>DETREND DATA</strong>= Compute the detrended time serie <span class="arithmatex">\(D_t = Y_t / \hat{T_t}\)</span> </li>
@@ -611,8 +670,8 @@ Example to compute a MA3:</p>
   - <span class="arithmatex">\(\hat{R}\)</span>: Forecast of <span class="arithmatex">\(R\)</span> using exponential smoothing with <span class="arithmatex">\(\alpha\)</span> being either fixed or solved to minimize the standard error.
   - <span class="arithmatex">\(F\)</span>: Forecast of <span class="arithmatex">\(Y\)</span>
   - <span class="arithmatex">\(SE\)</span>: Standard error</p>
-<p>#### Example</p>
-<p>Here is an example of a </p>
+<p>### Example</p>
+<p>Here is an example of a time series decomposition.</p>
 <p><img alt="decomposition" src="../decomposition.png" /></p>
 
 

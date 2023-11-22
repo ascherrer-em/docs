@@ -1,4 +1,4 @@
-# Time series memo
+# Time series
 
 This document describes statistical methods that can used for time series analysis, with associated formulas and practical usage with Excel.
 
@@ -125,7 +125,7 @@ There are **two** classical models (we will only focus on them for this course):
 
  From here, methodologies are different for additive or multiplicative models
 
- #### Additive model
+### Additive model
 
  1. **ESTIMATE TREND**: Estimate the trend $\hat{T_t}$ using central moving average or exponential smoothing. 
  1. **DETREND DATA**= Compute the detrended time serie $D_t = Y_t - \hat{T_t}$ 
@@ -152,8 +152,7 @@ When using Excel to build such a model, you should have the folowing columns:
   - $F$: Forecast of $Y$
   - $SE$: Standard error
 
-
- #### Multiplicative model
+### Multiplicative model
 
  1. **ESTIMATE TREND**: Estimate the trend $\hat{T_t}$ using central moving average or exponential smoothing. 
  1. **DETREND DATA**= Compute the detrended time serie $D_t = Y_t / \hat{T_t}$ 
@@ -177,8 +176,8 @@ When using Excel to build such a model, you should have the folowing columns:
   - $SE$: Standard error
 
 
- #### Example
+ ### Example
 
- Here is an example of a 
+ Here is an example of a time series decomposition.
  
  ![decomposition](decomposition.png)

@@ -17,12 +17,12 @@ The archetypical example is to classify customers based on the amount of revenue
 
 ## Methodology
 
-1. Define properly your business objective (what are )
+1. Define properly your business objective (what are the measure you are interested in? It may require to preprocess your data, building pivot tables for instance)
 1. Gather the data needed to perform the classification
-1. Identify the measure $M$ that will be the classification critrion
+1. Identify the measure $M$ that will be the classification criterion
 1. Sort your objects in descending order according to that measure
-1. Compute the frequency (constant $f$), the cummulated frequency (cummulative sum of $f$), the proportion $P_i$ and the cummulative proportion (cummulative sum of $P_i$)
-1. Plot a Pareto chart (cummulative proportion versus cummulative frequency)
+1. Compute the frequency (constant $f$), the cumulated frequency (cumulative sum of $f$), the proportion $P_i$ and the cumulative proportion (cumulative sum of $P_i$)
+1. Plot a Pareto chart (cumulative proportion versus cumulative frequency)
 1. Plot also the diagonal line
 1. Classify your objects in 3 classes using the empirical rule defined below
 
@@ -30,12 +30,12 @@ The archetypical example is to classify customers based on the amount of revenue
 
 Using Excel, you should use the following columns to perform the classification:
 
- - Object: The object your are considerring
+ - Object: The object your are considering
  - $M$: The measure that drives the classification for each object. **Your table should be sorted in descending order based on that column**
  - $f$: The frequency ($f = 1/N$)
- - $C_f$: The cummulative frequency
+ - $C_f$: The cumulative frequency
  - $P$: The proportion of $M$
- - $C_P$: The cummulative proportion (cummulative sum of $P$)
+ - $C_P$: The cumulative proportion (cumulative sum of $P$)
  - $S_i$: The trapeze area for the current point: $S_i = \frac{1}{2} f (C_{P_i}+C_{P_{i-1}})$. When $i=1$, use $S_1 = \frac{1}{2} f C_{P_i}$
 
 Then, outside your object table, you need to compute the following quantities:

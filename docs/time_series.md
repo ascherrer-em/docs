@@ -4,19 +4,19 @@ This document describes statistical methods that can used for time series analys
 
 ## Notations
 
-Here is a list of the notations used thoughout this document
+Here is a list of the notations used throughout this document
 
  - $Y_t$: the data value at time $t$ 
  - $F_t$: the forecasted value at time $t$ 
  - $G_t$: the smoothed value at time $t$ 
- - $S_t$: the seasonal coeficient at time $t$
- - ...
+ - $S_t$: the seasonal coefficient at time $t$
+ - $R_t$: the residual at time $t$
+ - $T_t$: the trend at time $t$
 
 
 ## Moving average
 
 Simple and efficient way to smooth the data, equivalent to the convolution of the signal by a window. Weighted moving average allows to control the weight of observation, shaping different types of window.
-
 
 ### Smoothing
 
@@ -47,7 +47,7 @@ $\displaystyle F_t = \sum_{i=1}^{i=N} w_{i} Y_{t-i}  $
 
 ## Simple exponential smoothing
 
-Recuressive way to smooth the data, with exponentially decreasing weights, controlled by one parameter: $\alpha$
+Recursive way to smooth the data, with exponentially decreasing weights, controlled by one parameter: $\alpha$
 
 > **Simple exponential smoothing is good for data with no trend and no seasonality!**
 
@@ -71,9 +71,9 @@ $G_0 = Y_0$
 
 ## Double exponential smoothing
 
-The idea is to apply exponential smoothing twice (we use the result of the first smoothing to estimate the trend). In the course we use Brown's linear exponential smoothing. Double exponential smoothing is only used to do forcast.
+The idea is to apply exponential smoothing twice (we use the result of the first smoothing to estimate the trend). In the course we use Brown's linear exponential smoothing. Double exponential smoothing is only used to do forecast.
 
-The recurssive formula reads:
+The recursive formula reads:
 
 $s'_t = \alpha Y_t + (1-\alpha)s'_{t-1}$
 
@@ -103,7 +103,7 @@ $\displaystyle F_{t+m} = s_t + m b_t$
 
 ## Time series decomposition
 
-To make better forecast, it is usually required to separate the time serie into different parts:
+To make better forecast, it is usually required to separate the time series into different parts:
 
   - The **trend** $T_t$: model the low frequency variation, can be fit to a linear evolution
   - The **seasonality component** $S_t$: model periodic variations. First step is to identify the period, and second step is to estimate $S_t$
@@ -118,9 +118,9 @@ There are **two** classical models (we will only focus on them for this course):
 
 ### Step by step methodology
 
- 1. **VIZ**: Plot the time serie, it is very important to take a look at the evolution of what you are studying. Clearly identify sampling frequency (daily, weekly, monthly, quarterly, yearly?).
- 1. **TREND**: Identify if there is a trend, and wheter trend is additive or multiplicative (is trend linear?)
- 1. **SEASONALITY**: Identify if there is seasonality, and wheter seasonality is additive or multiplicative (is the applitude of period fluctuation increasing with time?) and it's period.
+ 1. **VIZ**: Plot the time series, it is very important to take a look at the evolution of what you are studying. Clearly identify sampling frequency (daily, weekly, monthly, quarterly, yearly?).
+ 1. **TREND**: Identify if there is a trend, and whether trend is additive or multiplicative (is trend linear?)
+ 1. **SEASONALITY**: Identify if there is seasonality, and whether seasonality is additive or multiplicative (is the amplitude of period fluctuation increasing with time?) and it's period.
  1. **MODEL**: Build a model (additive or multiplicative for trend/seasonality) for your data and write the associated equation
 
  From here, methodologies are different for additive or multiplicative models
@@ -128,8 +128,8 @@ There are **two** classical models (we will only focus on them for this course):
 ### Additive model
 
  1. **ESTIMATE TREND**: Estimate the trend $\hat{T_t}$ using central moving average or exponential smoothing. 
- 1. **DETREND DATA**= Compute the detrended time serie $D_t = Y_t - \hat{T_t}$ 
- 1. **ESTIMATE SEASONAL COMPONENT**: Use $D_t$ to estimate seasonal component. You should average the values of the coeficient for each similar period (for instance, average all january component for yearly seasonality and monthly data). This gives $\hat{S_t}$ which is **periodic**.
+ 1. **DETREND DATA**= Compute the detrended time series $D_t = Y_t - \hat{T_t}$ 
+ 1. **ESTIMATE SEASONAL COMPONENT**: Use $D_t$ to estimate seasonal component. You should average the values of the coefficient for each similar period (for instance, average all January component for yearly seasonality and monthly data). This gives $\hat{S_t}$ which is **periodic**.
  1. **ESTIMATE REMINDER**: Estimate the residuals $R_t = Y_r - \hat{T_t} - \hat{S_t})$
  1. **EVALUATE YOUR MODEL**: Before starting to forecast, plot $Y$, $S$, $T$ and $R$ and make sure your decomposition is sound.
  1. **FORECAST MODEL**: To perform a forecast, we usually use $Y_t = A_t + S_t$, regrouping trend and residuals into $A_t = T_t + R_t$. 
@@ -156,8 +156,8 @@ When using Excel to build such a model, you should have the folowing columns:
 ### Multiplicative model
 
  1. **ESTIMATE TREND**: Estimate the trend $\hat{T_t}$ using central moving average or exponential smoothing. 
- 1. **DETREND DATA**= Compute the detrended time serie $D_t = Y_t / \hat{T_t}$ 
- 1. **ESTIMATE SEASONAL COMPONENT**: Use $D_t$ to estimate seasonal component. You should average the values of the coeficient for each similar period (for instance, average all january component for yearly seasonality and monthly data). This gives $\hat{S_t}$ which is **periodic**.
+ 1. **DETREND DATA**= Compute the detrended time series $D_t = Y_t / \hat{T_t}$ 
+ 1. **ESTIMATE SEASONAL COMPONENT**: Use $D_t$ to estimate seasonal component. You should average the values of the coefficient for each similar period (for instance, average all january component for yearly seasonality and monthly data). This gives $\hat{S_t}$ which is **periodic**.
  1. **ESTIMATE REMINDER**: Estimate the residuals $\displaystyle R_t = \frac{Y_r}{\hat{T_t}\hat{S_t}}$
   1. **EVALUATE YOUR MODEL**: Before starting to forecast, plot $Y$, $S$, $T$ and $R$ and make sure your decomposition is sound.
  1. **FORECAST MODEL**: To perform a forecast, we usually use $Y_t = A_t \times S_t$, regrouping trend and residuals into $A_t = T_t \times R_t$. The seasonal component will remain periodic with the same value, and any model for $A_t$ can be used.

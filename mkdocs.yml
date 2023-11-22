@@ -5,6 +5,9 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
   - tables
+  - attr_list
+  - md_in_html
+
 
 extra_javascript:
   - js/katex.js 

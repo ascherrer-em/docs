@@ -6,6 +6,8 @@ theme:
     - navigation.instant.prefetch
     - navigation.tabs
     - navigation.tabs.sticky
+    - search.suggest
+    - search.highlight
 
 markdown_extensions:
   - pymdownx.arithmatex:

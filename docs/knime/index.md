@@ -87,7 +87,11 @@ yarl                    1.8.1
 
 For Keras a much older environnment is required. 
 
-> **For M1 mac, you will need to create an environment using Intel reposititory, to do that you need to prefix conda commands with: `CONDA_SUBDIR=osx-64`**
+!!! warning annotate "Apple silicon (M1/M2) mac users"
+
+    For Apple Silicon macs, you will need to create an environment using Intel reposititory, to do that you need to prefix conda commands with: `CONDA_SUBDIR=osx-64`
+    
+    You will also need to install [Rosetta2](https://support.apple.com/en-us/HT211861)
 
 Here is the list of packages:
 

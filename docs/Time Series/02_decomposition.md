@@ -1,4 +1,4 @@
-# Time series decomposition
+# Decomposition
 
 This document describes statistical methods that can used for time series decomposition, with associated formulas and practical usage with Excel.
 

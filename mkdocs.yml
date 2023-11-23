@@ -8,6 +8,8 @@ theme:
     - navigation.tabs.sticky
     - search.suggest
     - search.highlight
+    - content.code.copy
+    - content.code.select
 
 markdown_extensions:
   - pymdownx.arithmatex:
@@ -24,7 +26,7 @@ markdown_extensions:
       pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
-  
+
 extra_javascript:
   - js/katex.js 
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js  

@@ -1,10 +1,11 @@
 site_name: Antoine Scherrer's Docs
 theme:
   name: material
-
-nav:
-  - 'BBA2 Maths and stats applied': 'bba2_math/index.md'
-  - 'Knime': 'knime/index.md'
+  features:
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.tabs
+    - navigation.tabs.sticky
 
 markdown_extensions:
   - pymdownx.arithmatex:

@@ -11,16 +11,16 @@
       
       
       
-      <link rel="icon" href="/assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
     
     
       
-        <title>Antoine Scherrer's Docs</title>
+        <title>ABC classification - Antoine Scherrer's Docs</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.4b4a2bd9.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4b4a2bd9.min.css">
       
       
 
@@ -41,7 +41,7 @@
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -62,6 +62,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#abc-classification" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -74,7 +79,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="Antoine Scherrer&#39;s Docs" class="md-header__button md-logo" aria-label="Antoine Scherrer's Docs" data-md-component="logo">
+    <a href="../.." title="Antoine Scherrer&#39;s Docs" class="md-header__button md-logo" aria-label="Antoine Scherrer's Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -94,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              ABC classification
             
           </span>
         </div>
@@ -166,7 +171,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="Antoine Scherrer&#39;s Docs" class="md-nav__button md-logo" aria-label="Antoine Scherrer's Docs" data-md-component="logo">
+    <a href="../.." title="Antoine Scherrer&#39;s Docs" class="md-nav__button md-logo" aria-label="Antoine Scherrer's Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -183,7 +188,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/bba2_math/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -202,7 +207,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/knime/" class="md-nav__link">
+      <a href="../../knime/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -232,6 +237,37 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#definitions-and-notations" class="md-nav__link">
+    Definitions and notations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methodology" class="md-nav__link">
+    Methodology
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#excel-implementation" class="md-nav__link">
+    Excel implementation
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -243,8 +279,99 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+<h1 id="abc-classification">ABC classification</h1>
+<p>ABC classification is a simple method to form 3 (or 4) groups of objects based on the distribution of some value associated with them. </p>
+<p>It is greatly inspired by the 80/20 Pareto rule, indicating that often 80% of a measure (for instance the revenue) comes from only 20% of objects (for instance customers).</p>
+<p>The archetypical example is to classify customers based on the amount of revenue they bring to a company.</p>
+<h2 id="definitions-and-notations">Definitions and notations</h2>
+<ul>
+<li>We will consider <span class="arithmatex">\(N\)</span> objects </li>
+<li><span class="arithmatex">\(M_i\)</span>: the measure for object <span class="arithmatex">\(i\)</span> that corresponds to the classification criterion</li>
+<li><span class="arithmatex">\(P_i\)</span>: the proportion of <span class="arithmatex">\(M_i\)</span> with respect to the total measure.</li>
+</ul>
+<p><span class="arithmatex">\(\displaystyle P_i = \frac{M_i}{\sum_{i=1}^{N} M_i }\)</span>
+- <span class="arithmatex">\(f\)</span>: the frequency, which is equal to <span class="arithmatex">\(1/N\)</span></p>
+<h2 id="methodology">Methodology</h2>
+<ol>
+<li>Define properly your business objective (what are the measure you are interested in? It may require to preprocess your data, building pivot tables for instance)</li>
+<li>Gather the data needed to perform the classification</li>
+<li>Identify the measure <span class="arithmatex">\(M\)</span> that will be the classification criterion</li>
+<li>Sort your objects in descending order according to that measure</li>
+<li>Compute the frequency (constant <span class="arithmatex">\(f\)</span>), the cumulated frequency (cumulative sum of <span class="arithmatex">\(f\)</span>), the proportion <span class="arithmatex">\(P_i\)</span> and the cumulative proportion (cumulative sum of <span class="arithmatex">\(P_i\)</span>)</li>
+<li>Plot a Pareto chart (cumulative proportion versus cumulative frequency)</li>
+<li>Plot also the diagonal line</li>
+<li>Classify your objects in 3 classes using the empirical rule defined below</li>
+</ol>
+<h2 id="excel-implementation">Excel implementation</h2>
+<p>Using Excel, you should use the following columns to perform the classification:</p>
+<ul>
+<li>Object: The object your are considering</li>
+<li><span class="arithmatex">\(M\)</span>: The measure that drives the classification for each object. <strong>Your table should be sorted in descending order based on that column</strong></li>
+<li><span class="arithmatex">\(f\)</span>: The frequency (<span class="arithmatex">\(f = 1/N\)</span>)</li>
+<li><span class="arithmatex">\(C_f\)</span>: The cumulative frequency</li>
+<li><span class="arithmatex">\(P\)</span>: The proportion of <span class="arithmatex">\(M\)</span></li>
+<li><span class="arithmatex">\(C_P\)</span>: The cumulative proportion (cumulative sum of <span class="arithmatex">\(P\)</span>)</li>
+<li><span class="arithmatex">\(S_i\)</span>: The trapeze area for the current point: <span class="arithmatex">\(S_i = \frac{1}{2} f (C_{P_i}+C_{P_{i-1}})\)</span>. When <span class="arithmatex">\(i=1\)</span>, use <span class="arithmatex">\(S_1 = \frac{1}{2} f C_{P_i}\)</span></li>
+</ul>
+<p>Then, outside your object table, you need to compute the following quantities:</p>
+<ul>
+<li><span class="arithmatex">\(S1\)</span>: the area under the curve, which is the sum of <span class="arithmatex">\(S\)</span>: <span class="arithmatex">\(\displaystyle S1 = \sum_{i=1}^{N} S_i\)</span></li>
+<li><span class="arithmatex">\(S\)</span>: the area between the diagonal and the curve: <span class="arithmatex">\(S= S1-0.5\)</span></li>
+<li><span class="arithmatex">\(B\)</span>: the area above the curve: <span class="arithmatex">\(B=1-S1\)</span></li>
+<li><span class="arithmatex">\(G\)</span>: the Gini index: <span class="arithmatex">\(\displaystyle G = \frac{S}{S+B}\)</span></li>
+</ul>
+<p>## Classification</p>
+<p>Then based on the value of the Gini index <span class="arithmatex">\(G\)</span>, you can use the following empirical rules:</p>
+<table>
+<thead>
+<tr>
+<th>G</th>
+<th>Class A</th>
+<th>Class B</th>
+<th>Class C</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(0.90 &lt; G &lt; 1.00\)</span></td>
+<td>10%</td>
+<td>10%</td>
+<td>80%</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(0.85 &lt; G &lt; 0.90\)</span></td>
+<td>10%</td>
+<td>20%</td>
+<td>70%</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(0.75 &lt; G &lt; 0.85\)</span></td>
+<td>20%</td>
+<td>20%</td>
+<td>60%</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(0.60 &lt; G &lt; 0.75\)</span></td>
+<td>20%</td>
+<td>30%</td>
+<td>50%</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>**<span class="arithmatex">\(G &lt; 0.6\)</span> indicates that no classification can take place.</p>
+</blockquote>
+<p>This reads that if <span class="arithmatex">\(G=0.95\)</span>, the class A should contain the first 10% of objects, the class B the next 10% and class C all other customers.</p>
+<p>Similarly, if <span class="arithmatex">\(G=0.70\)</span>, the class A should contain the first 20% of objects, the class B the next 30% and class C all other customers.</p>
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -277,12 +404,12 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "/", "features": [], "search": "/assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="/assets/javascripts/bundle.81fa17fe.min.js"></script>
+      <script src="../../assets/javascripts/bundle.81fa17fe.min.js"></script>
       
-        <script src="/js/katex.js"></script>
+        <script src="../../js/katex.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
       

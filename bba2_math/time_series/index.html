@@ -1,0 +1,457 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
+    
+    
+      
+        <title>Time series - Antoine Scherrer's Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4b4a2bd9.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#time-series" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Antoine Scherrer&#39;s Docs" class="md-header__button md-logo" aria-label="Antoine Scherrer's Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Antoine Scherrer's Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Time series
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Antoine Scherrer&#39;s Docs" class="md-nav__button md-logo" aria-label="Antoine Scherrer's Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Antoine Scherrer's Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BBA2 Maths and stats applied
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../knime/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Knime
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#notations" class="md-nav__link">
+    Notations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#moving-average" class="md-nav__link">
+    Moving average
+  </a>
+  
+    <nav class="md-nav" aria-label="Moving average">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smoothing" class="md-nav__link">
+    Smoothing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#forecast" class="md-nav__link">
+    Forecast
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simple-exponential-smoothing" class="md-nav__link">
+    Simple exponential smoothing
+  </a>
+  
+    <nav class="md-nav" aria-label="Simple exponential smoothing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smoothing_1" class="md-nav__link">
+    Smoothing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#forecast_1" class="md-nav__link">
+    Forecast
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#double-exponential-smoothing" class="md-nav__link">
+    Double exponential smoothing
+  </a>
+  
+    <nav class="md-nav" aria-label="Double exponential smoothing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alternative" class="md-nav__link">
+    Alternative
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="time-series">Time series</h1>
+<p>This document describes statistical methods that can used for time series smoothing and forecasting, with associated formulas and practical usage with Excel.</p>
+<h2 id="notations">Notations</h2>
+<p>Here is a list of the notations used throughout this document</p>
+<ul>
+<li><span class="arithmatex">\(Y_t\)</span>: the data value at time <span class="arithmatex">\(t\)</span> </li>
+<li><span class="arithmatex">\(F_t\)</span>: the forecasted value at time <span class="arithmatex">\(t\)</span> </li>
+<li><span class="arithmatex">\(G_t\)</span>: the smoothed value at time <span class="arithmatex">\(t\)</span> </li>
+<li><span class="arithmatex">\(S_t\)</span>: the seasonal coefficient at time <span class="arithmatex">\(t\)</span></li>
+<li><span class="arithmatex">\(R_t\)</span>: the residual at time <span class="arithmatex">\(t\)</span></li>
+<li><span class="arithmatex">\(T_t\)</span>: the trend at time <span class="arithmatex">\(t\)</span></li>
+</ul>
+<h2 id="moving-average">Moving average</h2>
+<p>Simple and efficient way to smooth the data, equivalent to the convolution of the signal by a window. Weighted moving average allows to control the weight of observation, shaping different types of window.</p>
+<h3 id="smoothing">Smoothing</h3>
+<p>When using the moving average method to <strong>smooth</strong> the data (i.e. to soften sudden changes), then a central moving average is computed.
+Example to compute a CMA3:</p>
+<p>$\displaystyle G_t = \frac{Y_{t-1} + Y_{t} + Y_{t+1}}{3} $</p>
+<p>When the number of coefficient is even, then the formula reads (for CMA4):</p>
+<p>$\displaystyle G_t = \frac{\frac{1}{2}Y_{t-2} + Y_{t-1} + Y_{t} + Y_{t+1} + \frac{1}{2}Y_{t+2}}{3} $</p>
+<h3 id="forecast">Forecast</h3>
+<p>When using the moving average method to <strong>forecast</strong> (i.e. predict future values), then a moving average is computed on past values only!
+Example to compute a MA3:</p>
+<p>$\displaystyle F_t = \frac{Y_{t-3} + Y_{t-2} + Y_{t-1}}{3} $</p>
+<p>Weights can be applied:</p>
+<p>$\displaystyle F_t = \frac{w_3 Y_{t-3} + w_2 Y_{t-2} + w_1 Y_{t-1}}{w_1 + w_2 + w_3} $</p>
+<p>More generally for weighted MA <span class="arithmatex">\(N\)</span> :</p>
+<p>$\displaystyle F_t = \frac{1}{\sum_{i=1}^{N} w_i} ~~\sum_{i=1}^{N} w_{i} Y_{t-i}  $</p>
+<h2 id="simple-exponential-smoothing">Simple exponential smoothing</h2>
+<p>Recursive way to smooth the data, with exponentially decreasing weights, controlled by one parameter: <span class="arithmatex">\(\alpha\)</span></p>
+<blockquote>
+<p><strong>Simple exponential smoothing is good for data with no trend and no seasonality!</strong></p>
+</blockquote>
+<h3 id="smoothing_1">Smoothing</h3>
+<p>When smoothing data, the recursive formula reads:</p>
+<p><span class="arithmatex">\(G_t = \alpha Y_t + (1-\alpha)G_{t-1}\)</span></p>
+<p>with initialization:
+<span class="arithmatex">\(G_0 = Y_0\)</span></p>
+<h3 id="forecast_1">Forecast</h3>
+<p>When forecasting data, the recursive formula reads:</p>
+<p><span class="arithmatex">\(F_t = \alpha Y_{t-1} + (1-\alpha)F_{t-1}\)</span></p>
+<p>with initialization:
+<span class="arithmatex">\(G_0 = Y_0\)</span></p>
+<h2 id="double-exponential-smoothing">Double exponential smoothing</h2>
+<p>The idea is to apply exponential smoothing twice (we use the result of the first smoothing to estimate the trend). In the course we use Brown's linear exponential smoothing. Double exponential smoothing is only used to do forecast.</p>
+<p>The recursive formula reads:</p>
+<p><span class="arithmatex">\(s'_t = \alpha Y_t + (1-\alpha)s'_{t-1}\)</span></p>
+<p><span class="arithmatex">\(s''_t = \alpha s'_t + (1-\alpha)s''_{t-1}\)</span></p>
+<p><span class="arithmatex">\(a_t = 2s'_t - s''_t\)</span></p>
+<p><span class="arithmatex">\(b_t = \frac{\alpha}{\alpha - 1} (s'_t - s''_t)\)</span></p>
+<p><span class="arithmatex">\(\displaystyle F_{t+m} = a_t + m b_t\)</span></p>
+<blockquote>
+<p><strong>Double exponential smoothing is good for data with trend and no seasonality!</strong></p>
+</blockquote>
+<h3 id="alternative">Alternative</h3>
+<p>Another way to apply exponential smoothing is Holt's linear, which uses 2 parameters (<span class="arithmatex">\(\alpha\)</span> and <span class="arithmatex">\(\beta\)</span>).</p>
+<p><span class="arithmatex">\(s_0 = Y_0\)</span></p>
+<p><span class="arithmatex">\(b_0 = Y_1 - Y_0\)</span></p>
+<p><span class="arithmatex">\(s_t =  \alpha Y_t + (1-\alpha)(s_{t-1} + b_{t-1})\)</span></p>
+<p><span class="arithmatex">\(b_t =  \beta (s_t - s_{t-1}) + (1-\beta)b_{t-1}\)</span></p>
+<p><span class="arithmatex">\(\displaystyle F_{t+m} = s_t + m b_t\)</span> </p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.81fa17fe.min.js"></script>
+      
+        <script src="../../js/katex.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

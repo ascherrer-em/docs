@@ -1,7 +1,4 @@
-# Contents
+# Welcome
 
-This is a list of current available docs:
-
- - [Time series](time_series.md)
- - [ABC classification](abc.md)
+This is a place where I host some documentation related to courses I give.
 

@@ -2,8 +2,6 @@ site_name: Antoine Scherrer's Docs
 theme:
   name: material
   features:
-    - navigation.instant
-    - navigation.instant.prefetch
     - navigation.tabs
     - navigation.tabs.sticky
     - search.suggest

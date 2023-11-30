@@ -1,116 +1,94 @@
-# Using knime with Python
+# Setting up a working Knime for AI practice
 
-To use Knime and Keras/Tensorflow deep learning libraries, you need to setup Python environments with particular versions of each library.
+## Knime installation
 
-You should do so using [`anaconda`](https://anaconda.org/) or [`miniconda`](https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html).
+1. Go to https://www.knime.com/downloads
+1. Register 
+1. Download knime for your platform -- **Be careful to download the appropriate version for your computer!**
+1. Be patient, it's a large file to download...
+1. Install knime
 
-First install anaconda or miniconda, and then go to Knime settings.
-Under `Python`, click `Create new environment``
+## Knime setup
 
+1. Open knime, and select a folder where your workflows will be placed
+1. Then, you should see something like
+ ![knime_python](knime_setup1.png)
+2.  Click on "i" button at the top right (highlighted in previous picture)
+2.  Scroll down to find "Switch to
+classic user interface" button and click on it 
+4.  Go to File > Install KNIME Extensions
+4.  Install the following extensions:
+
+    * KNIME Optimization extension
+    * KNIME Textprocessing
+    * KNIME Deep learning - Keras integration
+    * KNIME Image processing
+    * KNIME Image processing - Deep Learning Extension 
+    * KNIME Data generation
+    * KNIME Javascript Views (labs)
+
+5. *It will take a while...*
+6. This is the list of extensions you should see if you click on "already installed" in the install extension menu.
+ ![knime_python](knime_exts.png)
+6. Close KNIME
+
+
+
+## Python installation 
+
+The following steps are required only if anaconda is not installed on your computer.
+
+1. Go to [`anaconda`](https://www.anaconda.com/download) and download anaconda for your computer
+
+1. Install anaconda 
+
+## Setup KNIME with Python
+
+2. Open KNIME
+1. Go to File > Preferences
+1. Navigate to KNIME > Python (legacy)
  ![knime_python](knime_python1.png)
+1. Select Python 3 at the top
+1. Select `conda` as python environment configuration
+1. Don't worry about python2 (we will not use it)
+1. For Python 3, click on "Create new environment"
+1. This will take a while...
+1. When completed reset KNIME
 
-??? info "Package list on my installation"
+## Python environment for Keras
 
-    ```
-    Package                   Version
-    ------------------------- ------------
-    appnope                   0.1.3
-    asammdf                   5.19.14
-    asttokens                 2.4.1
-    attrs                     23.1.0
-    canmatrix                 0.9.5
-    cchardet                  2.1.7
-    certifi                   2023.11.17
-    click                     8.1.7
-    contourpy                 1.2.0
-    cycler                    0.12.1
-    decorator                 5.1.1
-    exceptiongroup            1.2.0
-    executing                 2.0.1
-    fastjsonschema            2.19.0
-    flatbuffers               1.12
-    fonttools                 4.45.1
-    future                    0.18.3
-    h5py                      2.10.0
-    importlib-resources       6.1.1
-    ipython                   8.17.2
-    jedi                      0.18.1
-    JPype1                    1.4.1
-    jsonschema                4.20.0
-    jsonschema-specifications 2023.11.1
-    jupyter_core              5.5.0
-    kiwisolver                1.4.5
-    lxml                      4.9.3
-    lz4                       4.3.2
-    matplotlib                3.8.2
-    matplotlib-inline         0.1.6
-    munkres                   1.1.4
-    natsort                   8.4.0
-    nbformat                  5.9.2
-    numexpr                   2.8.7
-    numpy                     1.26.0
-    packaging                 23.2
-    pandas                    2.1.3
-    parso                     0.8.3
-    pexpect                   4.8.0
-    pickleshare               0.7.5
-    Pillow                    10.1.0
-    pip                       23.3.1
-    pkgutil_resolve_name      1.3.10
-    platformdirs              4.0.0
-    prompt-toolkit            3.0.41
-    protobuf                  4.21.12
-    ptyprocess                0.7.0
-    pure-eval                 0.2.2
-    py4j                      0.10.9.7
-    pyarrow                   6.0.2
-    Pygments                  2.17.2
-    pyparsing                 3.1.1
-    python-dateutil           2.8.2
-    pytz                      2023.3.post1
-    PyYAML                    6.0.1
-    referencing               0.31.0
-    rpds-py                   0.13.1
-    scipy                     1.11.3
-    setuptools                68.2.2
-    six                       1.16.0
-    stack-data                0.6.2
-    tornado                   6.3.3
-    traitlets                 5.13.0
-    typing_extensions         4.8.0
-    tzdata                    2023.3
-    unicodedata2              15.1.0
-    wcwidth                   0.2.12
-    wheel                     0.41.3
-    xlrd                      2.0.1
-    XlsxWriter                3.1.9
-    xlwt                      1.3.0
-    zipp                      3.17.0
-    ```
+For Keras, a specific environment is required.
 
-## Knime environnement for Keras
-
-For Keras/Tensorflow2 different environment are required.
-
-You need to install Deep learning extension and go to Settings.
-Under `Python Deep Learning` you can do the same as above and create new environments.
-
+1. Open KNIME
+1. Go to File > Preferences
+1. Navigate to KNIME > Python Deep Learning
  ![knime_python](knime_python2.png)
+4. Select "Use special Deep learning configuration as defined below"
+1. Select `Keras` as the library for DL Python
+1. Select `conda` as python environment configuration
+1. Don't worry about tensorflow 2 (we will not need it)
+1. For Keras, click on "Create new environment"
+1. For Windows/Intel MACs/Linux it should work. For Appel Silicon MAC, see below:
 
-But it will most likely fail for apple silicon macs!
+## Follow the steps below for Apple silicon (M1/M2) Mac
 
 !!! warning annotate "Apple silicon (M1/M2) mac users"
 
-    For Apple Silicon macs, you will need to create an environment using Intel reposititory, to do that you need to prefix conda commands with: `CONDA_SUBDIR=osx-64`
-    
-    You will also need to install [Rosetta2](https://support.apple.com/en-us/HT211861)
+    For Apple Silicon macs, you will need to create manually an environment because the required libraries at old and they havn't been compiled for M1/M2
 
+1. Download Rosetta2 following [this procedure](https://support.apple.com/en-us/HT211861)
+1. On your Mac, go to Application > Utilities and open the `Terminal` app
+1. On the terminal here are the commands you need to execute:
 ``` shell
-CONDA_SUBDIR=osx-64 conda create -n py3_knime_keras python=3.6
-conda activate knime_keras
-conda install h5py=2.8 tensorflow-mkl=1.12 keras=2.2.4
-conda install pandas=0.23.0
+$ CONDA_SUBDIR=osx-64 conda create -n py3_knime_keras python=3.6
+$ conda activate knime_keras
+$ conda install h5py=2.8 tensorflow-mkl=1.12 keras=2.2.4
+$ conda install pandas=0.23.0
 ```
+4. Open KNIME 
+1. Go to File > Preferences
+1. Navigate to KNIME > Python Deep Learning 
+1. For Keras, choose  py3_knime_keras as environment.
 
 ??? info "Package list on my installation for Keras"
 

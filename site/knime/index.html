@@ -20,7 +20,7 @@
     
     
       
-        <title>Using knime with Python - Antoine Scherrer's Docs</title>
+        <title>Setting up a working Knime for AI practice - Antoine Scherrer's Docs</title>
       
     
     
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#using-knime-with-python" class="md-skip">
+        <a href="#setting-up-a-working-knime-for-ai-practice" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Using knime with Python
+              Setting up a working Knime for AI practice
             
           </span>
         </div>
@@ -333,7 +333,7 @@
           
   
   <span class="md-ellipsis">
-    Using knime with Python
+    Setting up a working Knime for AI practice
   </span>
   
 
@@ -344,7 +344,7 @@
         
   
   <span class="md-ellipsis">
-    Using knime with Python
+    Setting up a working Knime for AI practice
   </span>
   
 
@@ -366,8 +366,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#knime-environnement-for-keras" class="md-nav__link">
-    Knime environnement for Keras
+  <a href="#knime-installation" class="md-nav__link">
+    Knime installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#knime-setup" class="md-nav__link">
+    Knime setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-installation" class="md-nav__link">
+    Python installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-knime-with-python" class="md-nav__link">
+    Setup KNIME with Python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-environment-for-keras" class="md-nav__link">
+    Python environment for Keras
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#follow-the-steps-below-for-apple-silicon-m1m2-mac" class="md-nav__link">
+    Follow the steps below for Apple silicon (M1/M2) Mac
   </a>
   
 </li>
@@ -521,8 +556,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#knime-environnement-for-keras" class="md-nav__link">
-    Knime environnement for Keras
+  <a href="#knime-installation" class="md-nav__link">
+    Knime installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#knime-setup" class="md-nav__link">
+    Knime setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-installation" class="md-nav__link">
+    Python installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-knime-with-python" class="md-nav__link">
+    Setup KNIME with Python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-environment-for-keras" class="md-nav__link">
+    Python environment for Keras
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#follow-the-steps-below-for-apple-silicon-m1m2-mac" class="md-nav__link">
+    Follow the steps below for Apple silicon (M1/M2) Mac
   </a>
   
 </li>
@@ -542,141 +612,134 @@
                   
 
 
-<h1 id="using-knime-with-python">Using knime with Python</h1>
-<p>To use Knime and Keras/Tensorflow deep learning libraries, you need to setup Python environments with particular versions of each library.</p>
-<p>You should do so using <a href="https://anaconda.org/"><code>anaconda</code></a> or <a href="https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html"><code>miniconda</code></a>.</p>
-<p>First install anaconda or miniconda, and then go to Knime settings.
-Under <code>Python</code>, click `Create new environment``</p>
-<p><img alt="knime_python" src="knime_python1.png" /></p>
-<details class="info">
-<summary>Package list on my installation</summary>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Package                   Version
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>------------------------- ------------
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>appnope                   0.1.3
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>asammdf                   5.19.14
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>asttokens                 2.4.1
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>attrs                     23.1.0
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>canmatrix                 0.9.5
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>cchardet                  2.1.7
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>certifi                   2023.11.17
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>click                     8.1.7
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>contourpy                 1.2.0
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>cycler                    0.12.1
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>decorator                 5.1.1
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>exceptiongroup            1.2.0
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>executing                 2.0.1
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>fastjsonschema            2.19.0
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>flatbuffers               1.12
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>fonttools                 4.45.1
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>future                    0.18.3
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>h5py                      2.10.0
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>importlib-resources       6.1.1
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>ipython                   8.17.2
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>jedi                      0.18.1
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>JPype1                    1.4.1
-</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>jsonschema                4.20.0
-</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>jsonschema-specifications 2023.11.1
-</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>jupyter_core              5.5.0
-</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>kiwisolver                1.4.5
-</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>lxml                      4.9.3
-</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>lz4                       4.3.2
-</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>matplotlib                3.8.2
-</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>matplotlib-inline         0.1.6
-</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>munkres                   1.1.4
-</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>natsort                   8.4.0
-</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>nbformat                  5.9.2
-</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>numexpr                   2.8.7
-</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>numpy                     1.26.0
-</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>packaging                 23.2
-</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>pandas                    2.1.3
-</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>parso                     0.8.3
-</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>pexpect                   4.8.0
-</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>pickleshare               0.7.5
-</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>Pillow                    10.1.0
-</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>pip                       23.3.1
-</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>pkgutil_resolve_name      1.3.10
-</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>platformdirs              4.0.0
-</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>prompt-toolkit            3.0.41
-</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>protobuf                  4.21.12
-</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>ptyprocess                0.7.0
-</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a>pure-eval                 0.2.2
-</span><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a>py4j                      0.10.9.7
-</span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a>pyarrow                   6.0.2
-</span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a>Pygments                  2.17.2
-</span><span id="__span-0-54"><a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a>pyparsing                 3.1.1
-</span><span id="__span-0-55"><a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a>python-dateutil           2.8.2
-</span><span id="__span-0-56"><a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a>pytz                      2023.3.post1
-</span><span id="__span-0-57"><a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a>PyYAML                    6.0.1
-</span><span id="__span-0-58"><a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a>referencing               0.31.0
-</span><span id="__span-0-59"><a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a>rpds-py                   0.13.1
-</span><span id="__span-0-60"><a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a>scipy                     1.11.3
-</span><span id="__span-0-61"><a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a>setuptools                68.2.2
-</span><span id="__span-0-62"><a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a>six                       1.16.0
-</span><span id="__span-0-63"><a id="__codelineno-0-63" name="__codelineno-0-63" href="#__codelineno-0-63"></a>stack-data                0.6.2
-</span><span id="__span-0-64"><a id="__codelineno-0-64" name="__codelineno-0-64" href="#__codelineno-0-64"></a>tornado                   6.3.3
-</span><span id="__span-0-65"><a id="__codelineno-0-65" name="__codelineno-0-65" href="#__codelineno-0-65"></a>traitlets                 5.13.0
-</span><span id="__span-0-66"><a id="__codelineno-0-66" name="__codelineno-0-66" href="#__codelineno-0-66"></a>typing_extensions         4.8.0
-</span><span id="__span-0-67"><a id="__codelineno-0-67" name="__codelineno-0-67" href="#__codelineno-0-67"></a>tzdata                    2023.3
-</span><span id="__span-0-68"><a id="__codelineno-0-68" name="__codelineno-0-68" href="#__codelineno-0-68"></a>unicodedata2              15.1.0
-</span><span id="__span-0-69"><a id="__codelineno-0-69" name="__codelineno-0-69" href="#__codelineno-0-69"></a>wcwidth                   0.2.12
-</span><span id="__span-0-70"><a id="__codelineno-0-70" name="__codelineno-0-70" href="#__codelineno-0-70"></a>wheel                     0.41.3
-</span><span id="__span-0-71"><a id="__codelineno-0-71" name="__codelineno-0-71" href="#__codelineno-0-71"></a>xlrd                      2.0.1
-</span><span id="__span-0-72"><a id="__codelineno-0-72" name="__codelineno-0-72" href="#__codelineno-0-72"></a>XlsxWriter                3.1.9
-</span><span id="__span-0-73"><a id="__codelineno-0-73" name="__codelineno-0-73" href="#__codelineno-0-73"></a>xlwt                      1.3.0
-</span><span id="__span-0-74"><a id="__codelineno-0-74" name="__codelineno-0-74" href="#__codelineno-0-74"></a>zipp                      3.17.0
-</span></code></pre></div>
-</details>
-<h2 id="knime-environnement-for-keras">Knime environnement for Keras</h2>
-<p>For Keras/Tensorflow2 different environment are required.</p>
-<p>You need to install Deep learning extension and go to Settings.
-Under <code>Python Deep Learning</code> you can do the same as above and create new environments.</p>
-<p><img alt="knime_python" src="knime_python2.png" /></p>
-<p>But it will most likely fail for apple silicon macs!</p>
+<h1 id="setting-up-a-working-knime-for-ai-practice">Setting up a working Knime for AI practice</h1>
+<h2 id="knime-installation">Knime installation</h2>
+<ol>
+<li>Go to https://www.knime.com/downloads</li>
+<li>Register </li>
+<li>Download knime for your platform -- <strong>Be careful to download the appropriate version for your computer!</strong></li>
+<li>Be patient, it's a large file to download...</li>
+<li>Install knime</li>
+</ol>
+<h2 id="knime-setup">Knime setup</h2>
+<ol>
+<li>Open knime, and select a folder where your workflows will be placed</li>
+<li>Then, you should see something like
+ <img alt="knime_python" src="knime_setup1.png" /></li>
+<li>Click on "i" button at the top right (highlighted in previous picture)</li>
+<li>Scroll down to find "Switch to
+classic user interface" button and click on it </li>
+<li>Go to File &gt; Install KNIME Extensions</li>
+<li>
+<p>Install the following extensions:</p>
+<ul>
+<li>KNIME Optimization extension</li>
+<li>KNIME Textprocessing</li>
+<li>KNIME Deep learning - Keras integration</li>
+<li>KNIME Image processing</li>
+<li>KNIME Image processing - Deep Learning Extension </li>
+<li>KNIME Data generation</li>
+<li>KNIME Javascript Views (labs)</li>
+</ul>
+</li>
+<li>
+<p><em>It will take a while...</em></p>
+</li>
+<li>This is the list of extensions you should see if you click on "already installed" in the install extension menu.
+ <img alt="knime_python" src="knime_exts.png" /></li>
+<li>Close KNIME</li>
+</ol>
+<h2 id="python-installation">Python installation</h2>
+<p>The following steps are required only if anaconda is not installed on your computer.</p>
+<ol>
+<li>
+<p>Go to <a href="https://www.anaconda.com/download"><code>anaconda</code></a> and download anaconda for your computer</p>
+</li>
+<li>
+<p>Install anaconda </p>
+</li>
+</ol>
+<h2 id="setup-knime-with-python">Setup KNIME with Python</h2>
+<ol>
+<li>Open KNIME</li>
+<li>Go to File &gt; Preferences</li>
+<li>Navigate to KNIME &gt; Python (legacy)
+ <img alt="knime_python" src="knime_python1.png" /></li>
+<li>Select Python 3 at the top</li>
+<li>Select <code>conda</code> as python environment configuration</li>
+<li>Don't worry about python2 (we will not use it)</li>
+<li>For Python 3, click on "Create new environment"</li>
+<li>This will take a while...</li>
+<li>When completed reset KNIME</li>
+</ol>
+<h2 id="python-environment-for-keras">Python environment for Keras</h2>
+<p>For Keras, a specific environment is required.</p>
+<ol>
+<li>Open KNIME</li>
+<li>Go to File &gt; Preferences</li>
+<li>Navigate to KNIME &gt; Python Deep Learning
+ <img alt="knime_python" src="knime_python2.png" /></li>
+<li>Select "Use special Deep learning configuration as defined below"</li>
+<li>Select <code>Keras</code> as the library for DL Python</li>
+<li>Select <code>conda</code> as python environment configuration</li>
+<li>Don't worry about tensorflow 2 (we will not need it)</li>
+<li>For Keras, click on "Create new environment"</li>
+<li>For Windows/Intel MACs/Linux it should work. For Appel Silicon MAC, see below:</li>
+</ol>
+<h2 id="follow-the-steps-below-for-apple-silicon-m1m2-mac">Follow the steps below for Apple silicon (M1/M2) Mac</h2>
 <div class="admonition warning annotate">
 <p class="admonition-title">Apple silicon (M1/M2) mac users</p>
-<p>For Apple Silicon macs, you will need to create an environment using Intel reposititory, to do that you need to prefix conda commands with: <code>CONDA_SUBDIR=osx-64</code></p>
-<p>You will also need to install <a href="https://support.apple.com/en-us/HT211861">Rosetta2</a></p>
+<p>For Apple Silicon macs, you will need to create manually an environment because the required libraries at old and they havn't been compiled for M1/M2</p>
 </div>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">CONDA_SUBDIR</span><span class="o">=</span>osx-64<span class="w"> </span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>py3_knime_keras<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.6
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>conda<span class="w"> </span>activate<span class="w"> </span>knime_keras
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>conda<span class="w"> </span>install<span class="w"> </span><span class="nv">h5py</span><span class="o">=</span><span class="m">2</span>.8<span class="w"> </span>tensorflow-mkl<span class="o">=</span><span class="m">1</span>.12<span class="w"> </span><span class="nv">keras</span><span class="o">=</span><span class="m">2</span>.2.4
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>conda<span class="w"> </span>install<span class="w"> </span><span class="nv">pandas</span><span class="o">=</span><span class="m">0</span>.23.0
-</span></code></pre></div>
+<ol>
+<li>Download Rosetta2 following <a href="https://support.apple.com/en-us/HT211861">this procedure</a></li>
+<li>On your Mac, go to Application &gt; Utilities and open the <code>Terminal</code> app</li>
+<li>On the terminal here are the commands you need to execute:
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span><span class="nv">CONDA_SUBDIR</span><span class="o">=</span>osx-64<span class="w"> </span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>py3_knime_keras<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.6
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>$<span class="w"> </span>conda<span class="w"> </span>activate<span class="w"> </span>knime_keras
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>$<span class="w"> </span>conda<span class="w"> </span>install<span class="w"> </span><span class="nv">h5py</span><span class="o">=</span><span class="m">2</span>.8<span class="w"> </span>tensorflow-mkl<span class="o">=</span><span class="m">1</span>.12<span class="w"> </span><span class="nv">keras</span><span class="o">=</span><span class="m">2</span>.2.4
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>$<span class="w"> </span>conda<span class="w"> </span>install<span class="w"> </span><span class="nv">pandas</span><span class="o">=</span><span class="m">0</span>.23.0
+</span></code></pre></div></li>
+<li>Open KNIME </li>
+<li>Go to File &gt; Preferences</li>
+<li>Navigate to KNIME &gt; Python Deep Learning </li>
+<li>For Keras, choose  py3_knime_keras as environment.</li>
+</ol>
 <details class="info">
 <summary>Package list on my installation for Keras</summary>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Package             Version
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>------------------- ---------
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>absl-py             0.15.0
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>astor               0.8.1
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>certifi             2021.5.30
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>coverage            5.5
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>Cython              0.29.24
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>dataclasses         0.8
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>gast                0.5.3
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>grpcio              1.36.1
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>h5py                2.8.0
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>importlib-metadata  4.8.1
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>Keras               2.2.4
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>Keras-Applications  1.0.8
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>Keras-Preprocessing 1.1.2
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>Markdown            3.3.4
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>numpy               1.19.2
-</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>pandas              0.23.0
-</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>pip                 21.2.2
-</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>protobuf            3.17.2
-</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>python-dateutil     2.8.2
-</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>pytz                2021.3
-</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>PyYAML              5.4.1
-</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>scipy               1.5.2
-</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>setuptools          58.0.4
-</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>six                 1.16.0
-</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>tensorboard         1.12.2
-</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>tensorflow          1.12.0
-</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>termcolor           1.1.0
-</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>typing_extensions   4.1.1
-</span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>Werkzeug            2.0.3
-</span><span id="__span-2-32"><a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>wheel               0.37.1
-</span><span id="__span-2-33"><a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a>zipp                3.6.0
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Package             Version
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>------------------- ---------
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>absl-py             0.15.0
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>astor               0.8.1
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>certifi             2021.5.30
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>coverage            5.5
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Cython              0.29.24
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>dataclasses         0.8
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>gast                0.5.3
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>grpcio              1.36.1
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>h5py                2.8.0
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>importlib-metadata  4.8.1
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>Keras               2.2.4
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>Keras-Applications  1.0.8
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>Keras-Preprocessing 1.1.2
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>Markdown            3.3.4
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>numpy               1.19.2
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>pandas              0.23.0
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>pip                 21.2.2
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>protobuf            3.17.2
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>python-dateutil     2.8.2
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>pytz                2021.3
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>PyYAML              5.4.1
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>scipy               1.5.2
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>setuptools          58.0.4
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>six                 1.16.0
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>tensorboard         1.12.2
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>tensorflow          1.12.0
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>termcolor           1.1.0
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>typing_extensions   4.1.1
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>Werkzeug            2.0.3
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>wheel               0.37.1
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>zipp                3.6.0
 </span></code></pre></div>
 </details>
 

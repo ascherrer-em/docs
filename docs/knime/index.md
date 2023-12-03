@@ -59,7 +59,7 @@ The following steps are required only if anaconda is not installed on your compu
 
 For Keras, a specific environment is required.
 
-1. Open KNIME
+1. Open KNIME   
 1. Go to File > Preferences
 1. Navigate to KNIME > Python Deep Learning
  ![knime_python](knime_python2.png)

@@ -466,15 +466,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#additive-model" class="md-nav__link">
-    Additive model
+  <a href="#model-selection" class="md-nav__link">
+    Model selection
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#multiplicative-model" class="md-nav__link">
-    Multiplicative model
+  <a href="#decomposition-methodology" class="md-nav__link">
+    Decomposition methodology
   </a>
   
 </li>
@@ -563,15 +563,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#additive-model" class="md-nav__link">
-    Additive model
+  <a href="#model-selection" class="md-nav__link">
+    Model selection
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#multiplicative-model" class="md-nav__link">
-    Multiplicative model
+  <a href="#decomposition-methodology" class="md-nav__link">
+    Decomposition methodology
   </a>
   
 </li>
@@ -629,61 +629,79 @@
 <li><strong>SEASONALITY</strong>: Identify if there is seasonality, and whether seasonality is additive or multiplicative (is the amplitude of period fluctuation increasing with time?) and it's period.</li>
 <li><strong>MODEL</strong>: Build a model (additive or multiplicative for trend/seasonality) for your data and write the associated equation</li>
 </ol>
-<p>From here, methodologies are different for additive or multiplicative models</p>
-<h2 id="additive-model">Additive model</h2>
+<h2 id="model-selection">Model selection</h2>
+<table>
+<thead>
+<tr>
+<th>Trend</th>
+<th>Seasonality</th>
+<th>Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No</td>
+<td>No</td>
+<td>Simple Exponential smoothing or Moving Average</td>
+</tr>
+<tr>
+<td>Yes</td>
+<td>No</td>
+<td>Double Exponential smoothing</td>
+</tr>
+<tr>
+<td>No</td>
+<td>Yes</td>
+<td>Decomposition (trend=0)</td>
+</tr>
+<tr>
+<td>Yes</td>
+<td>Yes</td>
+<td>Decomposition (trend linear)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="decomposition-methodology">Decomposition methodology</h2>
 <ol>
-<li><strong>ESTIMATE TREND</strong>: Estimate the trend <span class="arithmatex">\(\hat{T_t}\)</span> using central moving average or exponential smoothing. </li>
-<li><strong>DETREND DATA</strong>= Compute the detrended time series <span class="arithmatex">\(D_t = Y_t - \hat{T_t}\)</span> </li>
-<li><strong>ESTIMATE SEASONAL COMPONENT</strong>: Use <span class="arithmatex">\(D_t\)</span> to estimate seasonal component. You should average the values of the coefficient for each similar period (for instance, average all January component for yearly seasonality and monthly data). This gives <span class="arithmatex">\(\hat{S_t}\)</span> which is <strong>periodic</strong>.</li>
-<li><strong>ESTIMATE REMINDER</strong>: Estimate the residuals <span class="arithmatex">\(R_t = Y_r - \hat{T_t} - \hat{S_t})\)</span></li>
-<li><strong>EVALUATE YOUR MODEL</strong>: Before starting to forecast, plot <span class="arithmatex">\(Y\)</span>, <span class="arithmatex">\(S\)</span>, <span class="arithmatex">\(T\)</span> and <span class="arithmatex">\(R\)</span> and make sure your decomposition is sound.</li>
-<li>
-<p><strong>FORECAST MODEL</strong>: To perform a forecast, we usually use <span class="arithmatex">\(Y_t = A_t + S_t\)</span>, regrouping trend and residuals into <span class="arithmatex">\(A_t = T_t + R_t\)</span>. </p>
-<ul>
-<li>The seasonal component will remain periodic with the same values. </li>
-<li>A linear regression is performed on <span class="arithmatex">\(A_t\)</span> so <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> are estimated and we have <span class="arithmatex">\(\hat{A_t} = at + b + R_t\)</span>.</li>
-<li>Since <span class="arithmatex">\(\hat{R_t}\)</span> has no trend and no seasonality, a simple exponential smoothing can be used to forecast its values <span class="arithmatex">\(\hat{R_r}\)</span>. Values in the future will simply be equal to the last forecast.</li>
-<li><strong>FORECAST</strong>: Now to compute the forecast, just apply <span class="arithmatex">\(F_t = \hat{A_t} + \hat{S_t}\)</span>, which is equivalent to: <span class="arithmatex">\(\displaystyle F_t = at + b + \hat{R_r} + \hat{S_t}\)</span></li>
+<li><strong>ESTIMATE TREND</strong>: Estimate a trend <span class="arithmatex">\(\hat{T_t}\)</span> using central moving average with a window size equal to the seasonal periodicity. </li>
+<li><strong>DETREND DATA</strong>: Compute the detrended time series:<ul>
+<li><strong><code>Additive</code></strong> <span class="arithmatex">\(\displaystyle D_t = Y_t - \hat{T_t}\)</span> </li>
+<li><strong><code>Multiplicative</code></strong> <span class="arithmatex">\(\displaystyle D_t = Y_t / \hat{T_t}\)</span> </li>
+</ul>
+</li>
+<li><strong>ESTIMATE SEASONAL COMPONENT</strong>: Use <span class="arithmatex">\(D_t\)</span> to estimate seasonal component. You should average the values of the coefficient for each period (for instance, average all January component for yearly seasonality and monthly data). This gives <span class="arithmatex">\(\hat{S_t}\)</span> which is <strong>periodic</strong>.</li>
+<li><strong>REMOVE SEASONALITY TO FOCUS ON TREND</strong>: Estimate <span class="arithmatex">\(A_t\)</span>, which should contain the trend and the residuals. We will use this data to perform a modelling of the trend:<ul>
+<li><strong><code>Additive</code></strong>  <span class="arithmatex">\(\displaystyle A_t = Y_r - \hat{S_t}\)</span></li>
+<li><strong><code>Multiplicative</code></strong>  <span class="arithmatex">\(\displaystyle A_t = Y_r / \hat{S_t}\)</span></li>
+</ul>
+</li>
+<li><strong>MODEL TREND</strong>: At this point, a linear model is computed for <span class="arithmatex">\(A_t\)</span> (in the course we only see linear models, but polynomial models could be used if trend is non-linear). This idea here is to model the trend as a straight line with a given slope and intercept (that can easily be computed with Excel functions <code>SLOPE</code> and <code>INTERCEPT</code>). Now <span class="arithmatex">\(\hat{A_t} = at + b\)</span>. The linear fit is the same for additive and multiplicative models.</li>
+<li><strong>COMPUTE RESIDUALS</strong>: Estimate the residuals:<ul>
+<li><strong><code>Additive</code></strong> <span class="arithmatex">\(\displaystyle R_t = Y_r - \hat{A_t} - \hat{S_t}\)</span></li>
+<li><strong><code>Multiplicative</code></strong> <span class="arithmatex">\(\displaystyle R_t = \frac{Y_r}{\hat{T_t} \times \hat{S_t}}\)</span></li>
+</ul>
+</li>
+<li><strong>FORECAST RESIDUALS</strong>: Residuals should be trendless and should not exhibit seasonality, therefore they can be forecasted using traditionnal exponential smoothing. The forecasted residuals will be called <span class="arithmatex">\(\hat{R_t}\)</span></li>
+<li><strong>FORECAST</strong>: Now to compute the forecast, just apply <ul>
+<li><strong><code>Additive</code></strong> <span class="arithmatex">\(\displaystyle F_t = \hat{A_t} + \hat{S_t} + \hat{R_t}\)</span></li>
+<li><strong><code>Multiplicative</code></strong> <span class="arithmatex">\(\displaystyle F_t = \hat{A_t} \times \hat{S_t} \times \hat{R_t}\)</span></li>
 </ul>
 </li>
 </ol>
-<p>When using Excel to build such a model, you should have the folowing columns:</p>
+<p>When using Excel to build such a model, you should have the following columns:</p>
 <ul>
 <li><span class="arithmatex">\(t\)</span>: (1 to <span class="arithmatex">\(N\)</span>)</li>
 <li><span class="arithmatex">\(Y\)</span>: Data points</li>
 <li><span class="arithmatex">\(\hat{T_t}\)</span>: Central moving average with <span class="arithmatex">\(k\)</span> points (k being the seasonal period)</li>
-<li><span class="arithmatex">\(D\)</span>: Detrended time series <span class="arithmatex">\(Y - \hat{T_t}\)</span></li>
+<li><span class="arithmatex">\(D\)</span>: Detrended time series</li>
 <li><span class="arithmatex">\(S\)</span>: Seasonal component</li>
-<li><span class="arithmatex">\(A\)</span>: Seasonally adjusted component <span class="arithmatex">\(Y - S\)</span></li>
+<li><span class="arithmatex">\(A\)</span>: Seasonally adjusted component </li>
 <li><span class="arithmatex">\(T\)</span>: <span class="arithmatex">\(at + b\)</span> using <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> from the linear regression of <span class="arithmatex">\(A\)</span> vs <span class="arithmatex">\(t\)</span></li>
-<li><span class="arithmatex">\(R\)</span>: Residuals <span class="arithmatex">\(Y-S-T\)</span></li>
+<li><span class="arithmatex">\(R\)</span>: Residuals </li>
 <li><span class="arithmatex">\(\hat{R}\)</span>: Forecast of <span class="arithmatex">\(R\)</span> using exponential smoothing with <span class="arithmatex">\(\alpha\)</span> being either fixed or solved to minimize the standard error.</li>
+<li><span class="arithmatex">\(RE\)</span>: Residuals forecast error (<span class="arithmatex">\(R_t-\hat{R_t}\)</span>)</li>
 <li><span class="arithmatex">\(F\)</span>: Forecast of <span class="arithmatex">\(Y\)</span></li>
-<li><span class="arithmatex">\(SE\)</span>: Standard error</li>
-</ul>
-<h2 id="multiplicative-model">Multiplicative model</h2>
-<ol>
-<li><strong>ESTIMATE TREND</strong>: Estimate the trend <span class="arithmatex">\(\hat{T_t}\)</span> using central moving average or exponential smoothing. </li>
-<li><strong>DETREND DATA</strong>= Compute the detrended time series <span class="arithmatex">\(D_t = Y_t / \hat{T_t}\)</span> </li>
-<li><strong>ESTIMATE SEASONAL COMPONENT</strong>: Use <span class="arithmatex">\(D_t\)</span> to estimate seasonal component. You should average the values of the coefficient for each similar period (for instance, average all january component for yearly seasonality and monthly data). This gives <span class="arithmatex">\(\hat{S_t}\)</span> which is <strong>periodic</strong>.</li>
-<li><strong>ESTIMATE REMINDER</strong>: Estimate the residuals <span class="arithmatex">\(\displaystyle R_t = \frac{Y_r}{\hat{T_t}\hat{S_t}}\)</span></li>
-<li><strong>EVALUATE YOUR MODEL</strong>: Before starting to forecast, plot <span class="arithmatex">\(Y\)</span>, <span class="arithmatex">\(S\)</span>, <span class="arithmatex">\(T\)</span> and <span class="arithmatex">\(R\)</span> and make sure your decomposition is sound.</li>
-<li><strong>FORECAST MODEL</strong>: To perform a forecast, we usually use <span class="arithmatex">\(Y_t = A_t \times S_t\)</span>, regrouping trend and residuals into <span class="arithmatex">\(A_t = T_t \times R_t\)</span>. The seasonal component will remain periodic with the same value, and any model for <span class="arithmatex">\(A_t\)</span> can be used.</li>
-<li><strong>FORECAST</strong>: Now to forecast apply, just apply <span class="arithmatex">\(F_t = \hat{A_t} + \hat{S_t}\)</span></li>
-</ol>
-<p>When using Excel to build such a model, you should have the folowing columns:</p>
-<ul>
-<li><span class="arithmatex">\(t\)</span> (1 to <span class="arithmatex">\(N\)</span>)</li>
-<li><span class="arithmatex">\(Y\)</span>: Data points</li>
-<li><span class="arithmatex">\(\hat{T_t}\)</span>: Central moving average with <span class="arithmatex">\(k\)</span> points (k being the seasonal period)</li>
-<li><span class="arithmatex">\(D\)</span>: Detrended time series <span class="arithmatex">\(Y/\hat{T_t}\)</span></li>
-<li><span class="arithmatex">\(S\)</span>: Seasonal component</li>
-<li><span class="arithmatex">\(A\)</span>: Seasonally adjusted component <span class="arithmatex">\(Y / S\)</span></li>
-<li><span class="arithmatex">\(T\)</span>: <span class="arithmatex">\(at + b\)</span> using <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> from the linear regression of <span class="arithmatex">\(A\)</span> vs <span class="arithmatex">\(t\)</span></li>
-<li><span class="arithmatex">\(R\)</span>: Residuals <span class="arithmatex">\(Y/(S\times T)\)</span></li>
-<li><span class="arithmatex">\(\hat{R}\)</span>: Forecast of <span class="arithmatex">\(R\)</span> using exponential smoothing with <span class="arithmatex">\(\alpha\)</span> being either fixed or solved to minimize the standard error.</li>
-<li><span class="arithmatex">\(F\)</span>: Forecast of <span class="arithmatex">\(Y\)</span></li>
-<li><span class="arithmatex">\(SE\)</span>: Standard error</li>
+<li><span class="arithmatex">\(SE\)</span>: Standard error (<span class="arithmatex">\(Y_t-F_t\)</span>)</li>
 </ul>
 <h2 id="example">Example</h2>
 <p>Here is an example of a time series decomposition.</p>

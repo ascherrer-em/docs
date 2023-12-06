@@ -72,9 +72,9 @@ When using Excel to build such a model, you should have the following columns:
   - $\hat{T}$: $at + b$ using $a$ and $b$ from the linear regression of $A$ vs $t$
   - $R$: Residuals 
   - $\hat{R}$: Forecast of $R$ using exponential smoothing with $\alpha$ being either fixed or solved to minimize the standard error.
-  - $RE$: Residuals forecast error ($R_t-\hat{R_t}$)
+  - $RE$: Residuals forecast error ($(R_t-\hat{R_t}^2$)
   - $F$: Forecast of $Y$
-  - $SE$: Standard error ($Y_t-F_t$)
+  - $SE$: Standard error ($(Y_t-F_t)^2$)
 
 ## Example
 

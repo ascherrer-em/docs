@@ -10,10 +10,6 @@ Here is a list of the notations used throughout this document
  - $Y_t$: the data value at time $t$ 
  - $F_t$: the forecasted value at time $t$ 
  - $G_t$: the smoothed value at time $t$ 
- - $S_t$: the seasonal coefficient at time $t$
- - $R_t$: the residual at time $t$
- - $T_t$: the trend at time $t$
-
 
 ## Smoothing versus forecasting
 

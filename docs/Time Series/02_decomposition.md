@@ -26,7 +26,6 @@ Here is a list of the notations used throughout this document
  - $R_t$: the residual at time $t$
  - $T_t$: the trend at time $t$
 
-
 ## Step by step methodology
 
  1. **VIZ**: Plot the time series, it is very important to take a look at the evolution of what you are studying. Clearly identify sampling frequency (daily, weekly, monthly, quarterly, yearly?).
@@ -34,60 +33,48 @@ Here is a list of the notations used throughout this document
  1. **SEASONALITY**: Identify if there is seasonality, and whether seasonality is additive or multiplicative (is the amplitude of period fluctuation increasing with time?) and it's period.
  1. **MODEL**: Build a model (additive or multiplicative for trend/seasonality) for your data and write the associated equation
 
- From here, methodologies are different for additive or multiplicative models
+## Model selection
 
-## Additive model
+|  Trend  |  Seasonality | Method  |
+| -----   | ---- | ---- |
+| No      | No   | Simple Exponential smoothing or Moving Average |
+| Yes     | No   | Double Exponential smoothing |
+| No      | Yes  | Decomposition (trend=0) |
+| Yes     | Yes  | Decomposition (trend linear) |
 
- 1. **ESTIMATE TREND**: Estimate the trend $\hat{T_t}$ using central moving average or exponential smoothing. 
- 1. **DETREND DATA**= Compute the detrended time series $D_t = Y_t - \hat{T_t}$ 
- 1. **ESTIMATE SEASONAL COMPONENT**: Use $D_t$ to estimate seasonal component. You should average the values of the coefficient for each similar period (for instance, average all January component for yearly seasonality and monthly data). This gives $\hat{S_t}$ which is **periodic**.
- 1. **ESTIMATE REMINDER**: Estimate the residuals $R_t = Y_r - \hat{T_t} - \hat{S_t})$
- 1. **EVALUATE YOUR MODEL**: Before starting to forecast, plot $Y$, $S$, $T$ and $R$ and make sure your decomposition is sound.
- 1. **FORECAST MODEL**: To perform a forecast, we usually use $Y_t = A_t + S_t$, regrouping trend and residuals into $A_t = T_t + R_t$. 
- 
-    - The seasonal component will remain periodic with the same values. 
-    - A linear regression is performed on $A_t$ so $a$ and $b$ are estimated and we have $\hat{A_t} = at + b + R_t$.
-    - Since $\hat{R_t}$ has no trend and no seasonality, a simple exponential smoothing can be used to forecast its values $\hat{R_r}$. Values in the future will simply be equal to the last forecast.
- 1. **FORECAST**: Now to compute the forecast, just apply $F_t = \hat{A_t} + \hat{S_t}$, which is equivalent to: $\displaystyle F_t = at + b + \hat{R_r} + \hat{S_t}$
+## Decomposition methodology
 
-When using Excel to build such a model, you should have the folowing columns:
+ 1. **ESTIMATE TREND**: Estimate a trend $\hat{T_t}$ using central moving average with a window size equal to the seasonal periodicity. 
+ 1. **DETREND DATA**: Compute the detrended time series:
+    - **`Additive`** $\displaystyle D_t = Y_t - \hat{T_t}$ 
+    - **`Multiplicative`** $\displaystyle D_t = Y_t / \hat{T_t}$ 
+ 1. **ESTIMATE SEASONAL COMPONENT**: Use $D_t$ to estimate seasonal component. You should average the values of the coefficient for each period (for instance, average all January component for yearly seasonality and monthly data). This gives $\hat{S_t}$ which is **periodic**.
+ 1. **REMOVE SEASONALITY TO FOCUS ON TREND**: Estimate $A_t$, which should contain the trend and the residuals. We will use this data to perform a modelling of the trend:
+     - **`Additive`**  $\displaystyle A_t = Y_r - \hat{S_t}$
+     - **`Multiplicative`**  $\displaystyle A_t = Y_r / \hat{S_t}$
+ 1. **MODEL TREND**: At this point, a linear model is computed for $A_t$ (in the course we only see linear models, but polynomial models could be used if trend is non-linear). This idea here is to model the trend as a straight line with a given slope and intercept (that can easily be computed with Excel functions `SLOPE` and `INTERCEPT`). Now $\hat{A_t} = at + b$. The linear fit is the same for additive and multiplicative models.
+ 1. **COMPUTE RESIDUALS**: Estimate the residuals:
+     - **`Additive`** $\displaystyle R_t = Y_r - \hat{A_t} - \hat{S_t}$
+     - **`Multiplicative`** $\displaystyle R_t = \frac{Y_r}{\hat{T_t} \times \hat{S_t}}$
+ 1. **FORECAST RESIDUALS**: Residuals should be trendless and should not exhibit seasonality, therefore they can be forecasted using traditionnal exponential smoothing. The forecasted residuals will be called $\hat{R_t}$
+ 1. **FORECAST**: Now to compute the forecast, just apply 
+     - **`Additive`** $\displaystyle F_t = \hat{A_t} + \hat{S_t} + \hat{R_t}$
+     - **`Multiplicative`** $\displaystyle F_t = \hat{A_t} \times \hat{S_t} \times \hat{R_t}$
+
+When using Excel to build such a model, you should have the following columns:
 
   - $t$: (1 to $N$)
   - $Y$: Data points
   - $\hat{T_t}$: Central moving average with $k$ points (k being the seasonal period)
-  - $D$: Detrended time series $Y - \hat{T_t}$
+  - $D$: Detrended time series
   - $S$: Seasonal component
-  - $A$: Seasonally adjusted component $Y - S$
+  - $A$: Seasonally adjusted component 
   - $T$: $at + b$ using $a$ and $b$ from the linear regression of $A$ vs $t$
-  - $R$: Residuals $Y-S-T$
+  - $R$: Residuals 
   - $\hat{R}$: Forecast of $R$ using exponential smoothing with $\alpha$ being either fixed or solved to minimize the standard error.
+  - $RE$: Residuals forecast error ($R_t-\hat{R_t}$)
   - $F$: Forecast of $Y$
-  - $SE$: Standard error
-
-## Multiplicative model
-
- 1. **ESTIMATE TREND**: Estimate the trend $\hat{T_t}$ using central moving average or exponential smoothing. 
- 1. **DETREND DATA**= Compute the detrended time series $D_t = Y_t / \hat{T_t}$ 
- 1. **ESTIMATE SEASONAL COMPONENT**: Use $D_t$ to estimate seasonal component. You should average the values of the coefficient for each similar period (for instance, average all january component for yearly seasonality and monthly data). This gives $\hat{S_t}$ which is **periodic**.
- 1. **ESTIMATE REMINDER**: Estimate the residuals $\displaystyle R_t = \frac{Y_r}{\hat{T_t}\hat{S_t}}$
-  1. **EVALUATE YOUR MODEL**: Before starting to forecast, plot $Y$, $S$, $T$ and $R$ and make sure your decomposition is sound.
- 1. **FORECAST MODEL**: To perform a forecast, we usually use $Y_t = A_t \times S_t$, regrouping trend and residuals into $A_t = T_t \times R_t$. The seasonal component will remain periodic with the same value, and any model for $A_t$ can be used.
- 1. **FORECAST**: Now to forecast apply, just apply $F_t = \hat{A_t} + \hat{S_t}$
-
-When using Excel to build such a model, you should have the folowing columns:
-
-  - $t$ (1 to $N$)
-  - $Y$: Data points
-  - $\hat{T_t}$: Central moving average with $k$ points (k being the seasonal period)
-  - $D$: Detrended time series $Y/\hat{T_t}$
-  - $S$: Seasonal component
-  - $A$: Seasonally adjusted component $Y / S$
-  - $T$: $at + b$ using $a$ and $b$ from the linear regression of $A$ vs $t$
-  - $R$: Residuals $Y/(S\times T)$
-  - $\hat{R}$: Forecast of $R$ using exponential smoothing with $\alpha$ being either fixed or solved to minimize the standard error.
-  - $F$: Forecast of $Y$
-  - $SE$: Standard error
-
+  - $SE$: Standard error ($Y_t-F_t$)
 
 ## Example
 

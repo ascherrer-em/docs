@@ -663,14 +663,14 @@
 </table>
 <h2 id="decomposition-methodology">Decomposition methodology</h2>
 <ol>
-<li><strong>ESTIMATE TREND</strong>: Estimate a trend <span class="arithmatex">\(\hat{T_t}\)</span> using central moving average with a window size equal to the seasonal periodicity. </li>
+<li><strong>ESTIMATE TREND</strong>: Estimate a trend <span class="arithmatex">\(\hat{TS_t}\)</span> using central moving average with a <strong>size equal to the seasonal periodicity</strong>. </li>
 <li><strong>DETREND DATA</strong>: Compute the detrended time series:<ul>
-<li><strong><code>Additive</code></strong> <span class="arithmatex">\(\displaystyle D_t = Y_t - \hat{T_t}\)</span> </li>
-<li><strong><code>Multiplicative</code></strong> <span class="arithmatex">\(\displaystyle D_t = Y_t / \hat{T_t}\)</span> </li>
+<li><strong><code>Additive</code></strong> <span class="arithmatex">\(\displaystyle D_t = Y_t - \hat{TS_t}\)</span> </li>
+<li><strong><code>Multiplicative</code></strong> <span class="arithmatex">\(\displaystyle D_t = Y_t / \hat{TS_t}\)</span> </li>
 </ul>
 </li>
 <li><strong>ESTIMATE SEASONAL COMPONENT</strong>: Use <span class="arithmatex">\(D_t\)</span> to estimate seasonal component. You should average the values of the coefficient for each period (for instance, average all January component for yearly seasonality and monthly data). This gives <span class="arithmatex">\(\hat{S_t}\)</span> which is <strong>periodic</strong>.</li>
-<li><strong>REMOVE SEASONALITY TO FOCUS ON TREND</strong>: Estimate <span class="arithmatex">\(A_t\)</span>, which should contain the trend and the residuals. We will use this data to perform a modelling of the trend:<ul>
+<li><strong>REMOVE SEASONALITY TO FOCUS ON TREND</strong>: Estimate <span class="arithmatex">\(A_t\)</span>, the seasonally adjusted data, which should contain the trend and the residuals. We will use this data to perform a modelling of the trend:<ul>
 <li><strong><code>Additive</code></strong>  <span class="arithmatex">\(\displaystyle A_t = Y_r - \hat{S_t}\)</span></li>
 <li><strong><code>Multiplicative</code></strong>  <span class="arithmatex">\(\displaystyle A_t = Y_r / \hat{S_t}\)</span></li>
 </ul>
@@ -692,8 +692,8 @@
 <ul>
 <li><span class="arithmatex">\(t\)</span>: (1 to <span class="arithmatex">\(N\)</span>)</li>
 <li><span class="arithmatex">\(Y\)</span>: Data points</li>
-<li><span class="arithmatex">\(\hat{T_t}\)</span>: Central moving average with <span class="arithmatex">\(k\)</span> points (k being the seasonal period)</li>
-<li><span class="arithmatex">\(D\)</span>: Detrended time series</li>
+<li><span class="arithmatex">\(\hat{TS_t}\)</span>: Central moving average with <span class="arithmatex">\(k\)</span> points (k being the seasonal period)</li>
+<li><span class="arithmatex">\(D\)</span>: Detrended time series for seasonal component estimation</li>
 <li><span class="arithmatex">\(S\)</span>: Seasonal component</li>
 <li><span class="arithmatex">\(A\)</span>: Seasonally adjusted component </li>
 <li><span class="arithmatex">\(T\)</span>: <span class="arithmatex">\(at + b\)</span> using <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> from the linear regression of <span class="arithmatex">\(A\)</span> vs <span class="arithmatex">\(t\)</span></li>

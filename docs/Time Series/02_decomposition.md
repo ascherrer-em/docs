@@ -44,12 +44,12 @@ Here is a list of the notations used throughout this document
 
 ## Decomposition methodology
 
- 1. **ESTIMATE TREND**: Estimate a trend $\hat{T_t}$ using central moving average with a window size equal to the seasonal periodicity. 
+ 1. **ESTIMATE TREND**: Estimate a trend $\hat{TS_t}$ using central moving average with a **size equal to the seasonal periodicity**. 
  1. **DETREND DATA**: Compute the detrended time series:
-    - **`Additive`** $\displaystyle D_t = Y_t - \hat{T_t}$ 
-    - **`Multiplicative`** $\displaystyle D_t = Y_t / \hat{T_t}$ 
+    - **`Additive`** $\displaystyle D_t = Y_t - \hat{TS_t}$ 
+    - **`Multiplicative`** $\displaystyle D_t = Y_t / \hat{TS_t}$ 
  1. **ESTIMATE SEASONAL COMPONENT**: Use $D_t$ to estimate seasonal component. You should average the values of the coefficient for each period (for instance, average all January component for yearly seasonality and monthly data). This gives $\hat{S_t}$ which is **periodic**.
- 1. **REMOVE SEASONALITY TO FOCUS ON TREND**: Estimate $A_t$, which should contain the trend and the residuals. We will use this data to perform a modelling of the trend:
+ 1. **REMOVE SEASONALITY TO FOCUS ON TREND**: Estimate $A_t$, the seasonally adjusted data, which should contain the trend and the residuals. We will use this data to perform a modelling of the trend:
      - **`Additive`**  $\displaystyle A_t = Y_r - \hat{S_t}$
      - **`Multiplicative`**  $\displaystyle A_t = Y_r / \hat{S_t}$
  1. **MODEL TREND**: At this point, a linear model is computed for $A_t$ (in the course we only see linear models, but polynomial models could be used if trend is non-linear). This idea here is to model the trend as a straight line with a given slope and intercept (that can easily be computed with Excel functions `SLOPE` and `INTERCEPT`). Now $\hat{A_t} = at + b$. The linear fit is the same for additive and multiplicative models.
@@ -65,8 +65,8 @@ When using Excel to build such a model, you should have the following columns:
 
   - $t$: (1 to $N$)
   - $Y$: Data points
-  - $\hat{T_t}$: Central moving average with $k$ points (k being the seasonal period)
-  - $D$: Detrended time series
+  - $\hat{TS_t}$: Central moving average with $k$ points (k being the seasonal period)
+  - $D$: Detrended time series for seasonal component estimation
   - $S$: Seasonal component
   - $A$: Seasonally adjusted component 
   - $T$: $at + b$ using $a$ and $b$ from the linear regression of $A$ vs $t$

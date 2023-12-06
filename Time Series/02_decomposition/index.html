@@ -663,10 +663,10 @@
 </table>
 <h2 id="decomposition-methodology">Decomposition methodology</h2>
 <ol>
-<li><strong>ESTIMATE TREND</strong>: Estimate a trend <span class="arithmatex">\(\hat{TS_t}\)</span> using central moving average with a <strong>size equal to the seasonal periodicity</strong>. </li>
+<li><strong>ESTIMATE TREND</strong>: Estimate a trend <span class="arithmatex">\(\hat{C_t}\)</span> using central moving average with a <strong>size equal to the seasonal periodicity</strong>. </li>
 <li><strong>DETREND DATA</strong>: Compute the detrended time series:<ul>
-<li><strong><code>Additive</code></strong> <span class="arithmatex">\(\displaystyle D_t = Y_t - \hat{TS_t}\)</span> </li>
-<li><strong><code>Multiplicative</code></strong> <span class="arithmatex">\(\displaystyle D_t = Y_t / \hat{TS_t}\)</span> </li>
+<li><strong><code>Additive</code></strong> <span class="arithmatex">\(\displaystyle D_t = Y_t - \hat{C_t}\)</span> </li>
+<li><strong><code>Multiplicative</code></strong> <span class="arithmatex">\(\displaystyle D_t = Y_t / \hat{C_t}\)</span> </li>
 </ul>
 </li>
 <li><strong>ESTIMATE SEASONAL COMPONENT</strong>: Use <span class="arithmatex">\(D_t\)</span> to estimate seasonal component. You should average the values of the coefficient for each period (for instance, average all January component for yearly seasonality and monthly data). This gives <span class="arithmatex">\(\hat{S_t}\)</span> which is <strong>periodic</strong>.</li>
@@ -692,11 +692,11 @@
 <ul>
 <li><span class="arithmatex">\(t\)</span>: (1 to <span class="arithmatex">\(N\)</span>)</li>
 <li><span class="arithmatex">\(Y\)</span>: Data points</li>
-<li><span class="arithmatex">\(\hat{TS_t}\)</span>: Central moving average with <span class="arithmatex">\(k\)</span> points (k being the seasonal period)</li>
+<li><span class="arithmatex">\(C\)</span>: Central moving average with <span class="arithmatex">\(k\)</span> points (k being the seasonal period)</li>
 <li><span class="arithmatex">\(D\)</span>: Detrended time series for seasonal component estimation</li>
-<li><span class="arithmatex">\(S\)</span>: Seasonal component</li>
+<li><span class="arithmatex">\(\hat{S}\)</span>: Seasonal component</li>
 <li><span class="arithmatex">\(A\)</span>: Seasonally adjusted component </li>
-<li><span class="arithmatex">\(T\)</span>: <span class="arithmatex">\(at + b\)</span> using <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> from the linear regression of <span class="arithmatex">\(A\)</span> vs <span class="arithmatex">\(t\)</span></li>
+<li><span class="arithmatex">\(\hat{T}\)</span>: <span class="arithmatex">\(at + b\)</span> using <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> from the linear regression of <span class="arithmatex">\(A\)</span> vs <span class="arithmatex">\(t\)</span></li>
 <li><span class="arithmatex">\(R\)</span>: Residuals </li>
 <li><span class="arithmatex">\(\hat{R}\)</span>: Forecast of <span class="arithmatex">\(R\)</span> using exponential smoothing with <span class="arithmatex">\(\alpha\)</span> being either fixed or solved to minimize the standard error.</li>
 <li><span class="arithmatex">\(RE\)</span>: Residuals forecast error (<span class="arithmatex">\(R_t-\hat{R_t}\)</span>)</li>

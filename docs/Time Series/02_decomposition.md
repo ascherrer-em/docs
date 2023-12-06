@@ -1,6 +1,6 @@
 # Decomposition
 
-This document describes statistical methods that can used for time series decomposition, with associated formulas and practical usage with Excel.
+This document describes statistical methods that can be used for time series decomposition, with associated formulas and practical usage with Excel.
 
 To make better forecast, it is usually required to separate the time series into different parts:
 

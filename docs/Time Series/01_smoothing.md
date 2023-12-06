@@ -1,6 +1,6 @@
 # Smoothing and forecasting 
 
-This document describes statistical methods that can used for time series smoothing and forecasting, with associated formulas and practical usage with Excel.
+This document describes statistical methods that can be used for time series smoothing and forecasting, with associated formulas and practical usage with Excel.
 
 ## Notations
 

@@ -44,10 +44,10 @@ Here is a list of the notations used throughout this document
 
 ## Decomposition methodology
 
- 1. **ESTIMATE TREND**: Estimate a trend $\hat{TS_t}$ using central moving average with a **size equal to the seasonal periodicity**. 
+ 1. **ESTIMATE TREND**: Estimate a trend $\hat{C_t}$ using central moving average with a **size equal to the seasonal periodicity**. 
  1. **DETREND DATA**: Compute the detrended time series:
-    - **`Additive`** $\displaystyle D_t = Y_t - \hat{TS_t}$ 
-    - **`Multiplicative`** $\displaystyle D_t = Y_t / \hat{TS_t}$ 
+    - **`Additive`** $\displaystyle D_t = Y_t - \hat{C_t}$ 
+    - **`Multiplicative`** $\displaystyle D_t = Y_t / \hat{C_t}$ 
  1. **ESTIMATE SEASONAL COMPONENT**: Use $D_t$ to estimate seasonal component. You should average the values of the coefficient for each period (for instance, average all January component for yearly seasonality and monthly data). This gives $\hat{S_t}$ which is **periodic**.
  1. **REMOVE SEASONALITY TO FOCUS ON TREND**: Estimate $A_t$, the seasonally adjusted data, which should contain the trend and the residuals. We will use this data to perform a modelling of the trend:
      - **`Additive`**  $\displaystyle A_t = Y_r - \hat{S_t}$
@@ -65,11 +65,11 @@ When using Excel to build such a model, you should have the following columns:
 
   - $t$: (1 to $N$)
   - $Y$: Data points
-  - $\hat{TS_t}$: Central moving average with $k$ points (k being the seasonal period)
+  - $C$: Central moving average with $k$ points (k being the seasonal period)
   - $D$: Detrended time series for seasonal component estimation
-  - $S$: Seasonal component
+  - $\hat{S}$: Seasonal component
   - $A$: Seasonally adjusted component 
-  - $T$: $at + b$ using $a$ and $b$ from the linear regression of $A$ vs $t$
+  - $\hat{T}$: $at + b$ using $a$ and $b$ from the linear regression of $A$ vs $t$
   - $R$: Residuals 
   - $\hat{R}$: Forecast of $R$ using exponential smoothing with $\alpha$ being either fixed or solved to minimize the standard error.
   - $RE$: Residuals forecast error ($R_t-\hat{R_t}$)

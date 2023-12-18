@@ -11,8 +11,8 @@ The archetypical example is to classify customers based on the amount of revenue
  - We will consider $N$ objects 
  - $M_i$: the measure for object $i$ that corresponds to the classification criterion
  - $P_i$: the proportion of $M_i$ with respect to the total measure.
- 
   $\displaystyle P_i = \frac{M_i}{\sum_{i=1}^{N} M_i }$
+  
 - $f$: the frequency, which is equal to $1/N$
 
 ## Methodology
